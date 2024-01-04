@@ -55,7 +55,7 @@ export default function Home() {
       <TokensHeader />
       <TokenSelect />
       {
-        width > 1000 &&
+        width && width > 1000 &&
         <TradeComponent />
       }
 
@@ -70,7 +70,7 @@ export default function Home() {
         >
 
           {
-            width < 1000 &&
+            width && width < 1000 &&
             <TradeComponent />
           }
 

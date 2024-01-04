@@ -2,12 +2,12 @@ import { useEffect, useState } from 'react'
 
 // Hook
 export default function useWindowSize() {
-  const [width, setWidth] = useState(window.innerWidth)
+  const [width, setWidth] = useState<number | null>(typeof window !== 'undefined' ? window.innerWidth : null)
   useEffect(() => {
     // Handler to call on window resize
     function handleResize() {
       // Set window width to state
-      setWidth(window.innerWidth)
+      setWidth(typeof window !== 'undefined' ? window.innerWidth : null)
     }
     // Add event listener
     window.addEventListener('resize', handleResize)
