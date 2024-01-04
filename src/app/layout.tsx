@@ -1,6 +1,9 @@
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
 import './globals.css'
+import { Header } from './components/Header'
+import { ThemeProvider } from "@/components/theme-provider"
+import Footer from './components/Footer'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -16,7 +19,24 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={inter.className}>{children}</body>
+      <body className={`${inter.className} w-screen h-screen`} >
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="dark"
+          enableSystem
+          disableTransitionOnChange
+        >
+          <div className='flex flex-col w-full h-full'>
+            <Header />
+            <div className='relative flex-grow h-full w-full overflow-y-scroll overflow-x-hidden  no-scrollbar'>
+              {/* <div className='md:absolute h-full w-full'> */}
+              {children}
+              {/* </div> */}
+            </div>
+            <Footer />
+          </div>
+        </ThemeProvider>
+      </body>
     </html>
   )
 }
