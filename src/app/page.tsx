@@ -5,11 +5,11 @@ import TradeComponent from './components/TradeComponent'
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuLabel, DropdownMenuSeparator, DropdownMenuTrigger } from '@/components/ui/dropdown'
 import { Button } from '@/components/ui/button'
 import { ChevronDown, Heart, Scaling } from 'lucide-react'
-import TradingViewWidget from './components/TradingviewChart'
 import useWindowSize from '@/hooks/useWindowSize'
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion'
 import Healthbar from '@/components/ui/healthbar'
 import CustomTabs from '@/components/ui/custom-tabs'
+import { Fragment } from 'react'
 
 export default function Home() {
 
@@ -56,22 +56,20 @@ export default function Home() {
       <TokenSelect />
       {
         width && width > 1000 &&
-        <TradeComponent />
+        <Fragment>
+          <TradeComponent />
+        </Fragment>
       }
 
 
-      <div className='overflow-auto no-scrollbar charmaincontainer-grid-area' style={{
-        gridArea: ""
-      }}>
-        <div className=' grid gap-2 h-full overflow-auto no-scrollbar chartmaincontainer'
-          style={{
-
-          }}
-        >
+      <div className='overflow-auto no-scrollbar charmaincontainer-grid-area'>
+        <div className=' grid gap-2 h-full overflow-auto no-scrollbar chartmaincontainer'>
 
           {
             width && width < 1000 &&
-            <TradeComponent />
+            <Fragment>
+              <TradeComponent />
+            </Fragment>
           }
 
           <div className=' grid-area-2'
@@ -141,63 +139,54 @@ export default function Home() {
             </div>
 
           </div>
-          <div className='   grid-area-4'
+
+
+          <div className='grid-area-chartcontainer'
           >
             <div className='h-full bg-card border-border rounded border overflow-hidden '>
-              <TradingViewWidget />
+              {/* <TradingViewWidget /> */}
             </div>
 
           </div>
-          <div className='grid-area-5'
+
+
+          <div className='grid-area-orderinfoContainer'
 
           >
             <div className='h-full bg-container-bg border-border rounded border overflow-hidden '>
               <div className='h-full bg-card border-border rounded border overflow-hidden'>
                 <div className='flex flex-col h-full'>
-                  <div className='inline-flex items-center justify-between w-full overflow-auto border-b border-border thin-scroll'>
-                    <div className='flex border-b bg-container-bg border-border border-none whitespace-nowrap '>
-                      <CustomTabs
-                        tabs={TradePageTabs.map((tab) => tab.name)}
-                        defaultTab='Trades'
-                        onTabChange={(tab) => console.log(tab)}
-                      />
-                      {/* {
-                        TradePageTabs.map((tab, index) => (
-                          <div key={index} className='py-1 px-2 flex items-center relative hover:cursor-pointer hover:bg-card text-text-label border-r border-border'>
-                            <div className='flex items-center w-full'>
-                              <div className='flex items-center mt-0.5 mx-auto'>
-                                <span>
-                                  {tab.name}
-                                </span>
-                              </div>
-                            </div>
-                          </div>
-                        ))
-                      } */}
+                  <div className='inline-flex items-center justify-between w-full overflow-x-auto border-b border-border thin-scrollbar'>
+                    <CustomTabs
+                      tabs={TradePageTabs.map((tab) => tab.name)}
+                      defaultTab='Trades'
+                      onTabChange={(tab) => console.log(tab)}
+                    />
+                    <div className='max-xl:hidden'>
+                      <DropdownMenu>
+                        <DropdownMenuTrigger asChild className='mr-2'>
+                          <Button variant="outline" size={'icon'}>
+                            <Scaling />
+                          </Button>
+                        </DropdownMenuTrigger>
+                        <DropdownMenuContent className="w-56">
+                          <DropdownMenuLabel>ReSize</DropdownMenuLabel>
+                          <DropdownMenuSeparator />
+                          <DropdownMenuItem>
+                            <span>Full </span>
+                          </DropdownMenuItem>
+                          <DropdownMenuItem>
+                            <span>Medium  </span>
+                          </DropdownMenuItem>
+                          <DropdownMenuItem>
+                            <span>Small</span>
+                          </DropdownMenuItem>
+                          <DropdownMenuItem>
+                            <span>Minumize</span>
+                          </DropdownMenuItem>
+                        </DropdownMenuContent>
+                      </DropdownMenu>
                     </div>
-                    <DropdownMenu>
-                      <DropdownMenuTrigger asChild className='mr-2'>
-                        <Button variant="outline" size={'icon'}>
-                          <Scaling />
-                        </Button>
-                      </DropdownMenuTrigger>
-                      <DropdownMenuContent className="w-56">
-                        <DropdownMenuLabel>ReSize</DropdownMenuLabel>
-                        <DropdownMenuSeparator />
-                        <DropdownMenuItem>
-                          <span>Full </span>
-                        </DropdownMenuItem>
-                        <DropdownMenuItem>
-                          <span>Medium  </span>
-                        </DropdownMenuItem>
-                        <DropdownMenuItem>
-                          <span>Small</span>
-                        </DropdownMenuItem>
-                        <DropdownMenuItem>
-                          <span>Minumize</span>
-                        </DropdownMenuItem>
-                      </DropdownMenuContent>
-                    </DropdownMenu>
                   </div>
 
                   <div className='transition-height ease-in duration-100' >

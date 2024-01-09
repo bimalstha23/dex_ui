@@ -1,5 +1,6 @@
 'use client'
 import { Button } from '@/components/ui/button'
+import CustomTabs from '@/components/ui/custom-tabs'
 import { Form, FormControl, FormField, FormItem, FormLabel } from '@/components/ui/form'
 import { Input } from '@/components/ui/input'
 import { Select, SelectContent, SelectGroup, SelectItem, SelectLabel, SelectTrigger, SelectValue } from '@/components/ui/select'
@@ -37,21 +38,16 @@ const TradeComponent = () => {
 
 
     return (
-        <div className='h-full bg-card w-full rounded border p-2 overflow-auto thin-scroll  trade-component-grid '
-            style={{
-                gridArea: '3 / 1 / 5 / 2',
-            }}
-        >
+        <div className='h-full bg-card w-full rounded border p-2 overflow-auto thin-scroll  trade-component-grid '>
             <div className='flex flex-col space-y-2 h-full overflow-auto thin-scroll p-1 justify-between'>
                 <div className='h-full'>
                     <Form {...form}>
-                        <div className='flex flex-col'>
-                            <Tabs>
-                                <TabsList>
-                                    <TabsTrigger className='border-2 border-green-600' value="Long">LONG</TabsTrigger>
-                                    <TabsTrigger value="short" className='border-2 border-red-500'>SHORT</TabsTrigger>
-                                </TabsList>
-                            </Tabs>
+                        <div className='flex flex-col border-t border-border border-l'>
+                            <CustomTabs
+                                tabs={['SHORT', 'LONG']}
+                                defaultTab='SHORT'
+                                onTabChange={(tab) => console.log(tab)}
+                            />
                         </div>
                         <div className='flex flex-row justify-center items-center space-x-2'>
                             <FormField

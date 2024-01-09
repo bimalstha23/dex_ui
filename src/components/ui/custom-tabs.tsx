@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+'use client'
+import React, { useState, useEffect } from 'react';
 
 interface CustomTabsProps {
     tabs: string[];
@@ -18,6 +19,13 @@ const CustomTabs: React.FC<CustomTabsProps> = ({ tabs, defaultTab, onTabChange }
         }
     };
 
+    // Set the active tab to the defaultTab on the client side after hydration
+    useEffect(() => {
+        if (defaultTab && defaultTab !== activeTab) {
+            setActiveTab(defaultTab);
+        }
+    }, [defaultTab, activeTab]);
+
     return (
         <div className='flex border-b bg-card border-border whitespace-nowrap'>
             {tabs.map((tab) => (
@@ -29,11 +37,11 @@ const CustomTabs: React.FC<CustomTabsProps> = ({ tabs, defaultTab, onTabChange }
                         }`}
                     onClick={() => handleTabClick(tab)}
                 >
-                    <span>{tab}</span>
+                    <div>{tab}</div>
                 </div>
             ))}
         </div>
     );
 };
 
-export default CustomTabs
+export default CustomTabs;

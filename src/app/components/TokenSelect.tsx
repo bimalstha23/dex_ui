@@ -1,3 +1,4 @@
+'use client'
 import CustomTabs from '@/components/ui/custom-tabs'
 import { DropdownMenu, DropdownMenuContent, DropdownMenuLabel, DropdownMenuSeparator, DropdownMenuTrigger } from '@/components/ui/dropdown'
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select'
@@ -150,9 +151,9 @@ const TokenSelect = () => {
                             <div className='flex flex-row items-center justify-between w-full asset-dropdown-header flex-fill xs:px-4 sm:px-0'>
                                 <div className='flex items-center'>
                                     <Image
-                                        src={'https://cdn.iconscout.com/icon/free/png-512/free-ethereum-1-283135.png?f=webp&w=512'}
+                                        src={'https://assets.coingecko.com/coins/images/780/small/bitcoin-cash-circle.png?1594689492'}
                                         className='w-[18px] h-[18px] mr-2'
-                                        blurDataURL='https://cdn.iconscout.com/icon/free/png-512/free-ethereum-1-283135.png?f=webp&w=512'
+                                        blurDataURL='https://assets.coingecko.com/coins/images/780/small/bitcoin-cash-circle.png?1594689492'
                                         placeholder='blur'
                                         width={18}
                                         height={18}
@@ -163,13 +164,13 @@ const TokenSelect = () => {
                                             ETH-PERP
                                         </span>
                                     </div>
-                                    <span className='pl-1.5'>
+                                    <div className='pl-1.5'>
                                         <div className='class="h-full flex items-center rounded-sm space-x-0.5 bg-muted text-chip-default-text"'>
                                             <span className='font-[300] text-[12px] leading-[14px] tracking-[0.15px]'>
                                                 4x
                                             </span>
                                         </div>
-                                    </span>
+                                    </div>
 
                                     <div className='ml-2'>
                                         <Info size={'20px'} />
@@ -255,13 +256,13 @@ const TokenSelect = () => {
                                                             <span className='ml-2'>
                                                                 {token.name}
                                                             </span>
-                                                            <span className='pl-1.5'>
+                                                            <div className='pl-1.5'>
                                                                 <div className='h-full flex items-center rounded-sm space-x-0.5 bg-accent text-primary' >
                                                                     <span className='font-[300] text-[12px] leading-[14px] p-1 tracking-[0.15px]'>
                                                                         4x
                                                                     </span>
                                                                 </div>
-                                                            </span>
+                                                            </div>
                                                         </div>
                                                         <div className='flex items-center justify-end pr-2'>
                                                             <div className='px-1 mr-1 rounded-md hover:bg-card'>
@@ -302,15 +303,15 @@ const TokenSelect = () => {
                                 </span>
                             </div>
                             <div className='outline-none focus:outline-none flex mr-20 sm:mr-0'>
-                                <span className='font-[400] text-[16px] leading-[-0.25px] whitespace-nowrap'>
+                                <div className='font-[400] text-[16px] leading-[-0.25px] whitespace-nowrap'>
                                     <span className='text-green-500 flex items-center'>
                                         +0.23%
                                     </span>
-                                </span>
+                                </div>
                             </div>
                             <Separator orientation="vertical" />
                             <div className='outline-none focus:outline-none flex'>
-                                <span className='font-[400] text-[11px] leading-[12px] min-w-[7rem] max-w-[7rem] tracking-[.15px]'>
+                                <div className='font-[400] text-[11px] leading-[12px] min-w-[7rem] max-w-[7rem] tracking-[.15px]'>
                                     <div className='flex flex-col'>
                                         <div className='overflow-hidden text-text-label '>
                                             Oracle Price
@@ -321,12 +322,12 @@ const TokenSelect = () => {
                                             $0.6120
                                         </div>
                                     </div>
-                                </span>
+                                </div>
                             </div>
 
                             <Separator orientation="vertical" />
                             <div className='outline-none focus:outline-none flex'>
-                                <span className='font-[400] text-[11px] leading-[12px] min-w-[10rem] max-w-[10rem] tracking-[.15px]'>
+                                <div className='font-[400] text-[11px] leading-[12px] min-w-[10rem] max-w-[10rem] tracking-[.15px]'>
                                     <div className='flex flex-col'>
                                         <div className='overflow-hidden text-text-label '>
                                             Predicted Funding Rate
@@ -337,11 +338,11 @@ const TokenSelect = () => {
                                             $0.54.57% APR in 56:12
                                         </div>
                                     </div>
-                                </span>
+                                </div>
                             </div>
                             <Separator orientation="vertical" />
                             <div className='outline-none focus:outline-none flex'>
-                                <span className='font-[400] text-[11px] leading-[12px] min-w-[10rem] max-w-[10rem] tracking-[.15px]'>
+                                <div className='font-[400] text-[11px] leading-[12px] min-w-[10rem] max-w-[10rem] tracking-[.15px]'>
                                     <div className='flex flex-col'>
                                         <div className='overflow-hidden text-text-label '>
                                             Predicted Funding Rate
@@ -352,11 +353,11 @@ const TokenSelect = () => {
                                             $0.54.57% APR in 56:12
                                         </div>
                                     </div>
-                                </span>
+                                </div>
                             </div>
                             <Separator orientation="vertical" />
                             <div className='outline-none focus:outline-none flex'>
-                                <span className='font-[400] text-[11px] leading-[12px] min-w-[10rem] max-w-[10rem] tracking-[.15px]'>
+                                <div className='font-[400] text-[11px] leading-[12px] min-w-[10rem] max-w-[10rem] tracking-[.15px]'>
                                     <div className='flex flex-col'>
                                         <div className='overflow-hidden text-text-label '>
                                             Predicted Funding Rate
@@ -367,11 +368,11 @@ const TokenSelect = () => {
                                             $0.54.57% APR in 56:12
                                         </div>
                                     </div>
-                                </span>
+                                </div>
                             </div>
                             <Separator orientation="vertical" />
                             <div className='outline-none focus:outline-none flex'>
-                                <span className='font-[400] text-[11px] leading-[12px] min-w-[10rem] max-w-[10rem] tracking-[.15px]'>
+                                <div className='font-[400] text-[11px] leading-[12px] min-w-[10rem] max-w-[10rem] tracking-[.15px]'>
                                     <div className='flex flex-col'>
                                         <div className='overflow-hidden text-text-label '>
                                             Predicted Funding Rate
@@ -382,7 +383,7 @@ const TokenSelect = () => {
                                             $0.54.57% APR in 56:12
                                         </div>
                                     </div>
-                                </span>
+                                </div>
                             </div>
 
                         </div>
