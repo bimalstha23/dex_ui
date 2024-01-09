@@ -54,22 +54,27 @@ export default function Home() {
 
       <TokensHeader />
       <TokenSelect />
+
+      {/* this conditional rendering is causing hydration error */}
       {
-        width && width > 1000 &&
-        <Fragment>
-          <TradeComponent />
-        </Fragment>
+        typeof window !== 'undefined' && width && width > 1000 && (
+          <Fragment>
+            <TradeComponent />
+          </Fragment>
+        )
       }
 
 
       <div className='overflow-auto no-scrollbar charmaincontainer-grid-area'>
-        <div className=' grid gap-2 h-full overflow-auto no-scrollbar chartmaincontainer'>
+        <div className='grid max-md:gap-y-2 md:gap-2 h-full overflow-auto no-scrollbar chartmaincontainer'>
 
+          {/* this conditional rendering is causing hydration error */}
           {
-            width && width < 1000 &&
-            <Fragment>
-              <TradeComponent />
-            </Fragment>
+            typeof window !== 'undefined' && width && width < 1000 && (
+              <Fragment>
+                <TradeComponent />
+              </Fragment>
+            )
           }
 
           <div className=' grid-area-2'
